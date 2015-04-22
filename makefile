@@ -1,9 +1,9 @@
-CXX      = g++
-CXX_FILE = $(wildcard *.cpp)
-TARGET   = $(patsubst %.cpp,%,$(CXX_FILE))
-CXXFLAGS = -g -fmessage-length=0
+CC     = gcc
+C_FILE = $(wildcard *.c)
+TARGET = $(patsubst %.c,%,$(C_FILE))
+CFLAGS = -g -fmessage-length=0
 
 all:
-	$(CXX) $(CXXFLAGS) $(CXX_FILE) -o $(TARGET)
+	$(CC) $(CFLAGS) $(C_FILE) -o $(TARGET)
 clean:
 	rm -f $(TARGET) $(TARGET).exe
