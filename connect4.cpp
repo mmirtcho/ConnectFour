@@ -1,4 +1,4 @@
-//Mark Mirtchouk's Connect Four Program 
+//Mark Mirtchouk's Connect Four Program
 
 #include <iostream>
 #include <cstdio>
@@ -564,6 +564,6 @@ int main()
         sColor='R';
         MakeMove (TheMoveCol);
     }
-	system("pause");
+	//system("pause");
     return 0;
 }
