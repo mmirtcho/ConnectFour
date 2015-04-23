@@ -1,0 +1,28 @@
+Instructions for building system
+1) Follow this link https://github.com/mmirtcho/ConnectFour and download all of the documents located in the repository
+2) Place the content in the single folder(directory).
+3) Locate and launch cmd.exe
+4) Navigate cmd to the directory, where you placed all of the files
+5) Type: make
+
+Instructions for running the unit tests
+1) steps 1-5 from previous instructions
+2) Type: ./connectfour < input.txt > output.txt (this will run connectfour using inputs from the input.txt and place all of the outputs into the output.txt)
+3) To check the correctness of the output. Type: diff output.txt expexted_output.txt (expected_output.txt was manually made by us, it includes expected output, when given inputs from input.txt) diff compares the content of 2 files and if nothing shows up, then 2 files are identical.
+4) Repeat same process for input2.txt and input3.txt, checking output with expected_output2.txt and expected_output3.txt.
+
+Note: input.txt consists of bad difficulty values and computer winning, input2.txt consists of bad move values and computer winning, while input3.txt consists of all good values and player winning.
+
+Instructions for running the system
+1) steps 1-5 from instructions for building system
+2) Type: ./connectfour
+3) You will be taken to : Please enter the Difficulty (1=Easy, 10=Hard): (enter any number from 1 to 10)
+4) Board will be displayed if the number entered is in correct range. After that you will need to enter a move ranging from 1 to 7 (number of columns) and unless the column is full “o” symbol will be placed in that column.
+5) Repeat 4 until you win or loose
+
+Note: our AI (artificial intelligence) is not perfect, so the larger the difficulty, longer it takes for computer to respond during the first few moves. Suggested difficulty: 1 to 5
+
+
+For any questions please contact us at:
+mmirtcho@stevens.edu
+

@@ -1,10 +1,7 @@
 //Mark Mirtchouk, Vlad Ligai, and Michael John's Connect Four Program
 
-//#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
+#include "connectfour.h"
 
-//using namespace std;
 
 char aMain[8][7];
 char piece[2]={ 'X','O'};
@@ -34,17 +31,10 @@ char WhoWin='B';
 int TheMoveCol;
 int TheMoveRoW;
 int RedCounter[8];
-int MAPK;
 int Difficulty=16;
-void CreateHelper();
-int ValidateFour(int Col, int Row, char WHO );
-int MakeTheBestMove();
-int AssumeHisMove();
-void MakeMove(int col);
-void displayGrid();
-int ObtainDifficulty();
+//BELOW THIS IS .h
 
-
+int maxsize=8;
 
 void CreateHelper()
 {
@@ -454,11 +444,14 @@ void displayGrid()
 int Obtain(){
     int result=0;
     int iColumn;
+    int n;
+    char buffer[maxsize];
 
     printf("\n");
     do{
-        printf("Please enter your move:");
-        scanf("%d", &iColumn);
+        printf("Please enter your move: \n");
+        scanf("%s", buffer);
+	iColumn=atoi(buffer);
         if (iColumn > 7 || iColumn < 1)
             printf("Invalid column\n");
         else if (aMain[iColumn][6] != ' ')
@@ -471,16 +464,18 @@ int Obtain(){
 int ObtainDifficulty(){
     int result=0;
     int iDifficulty;
-
+    int n;
+    char buffer[maxsize];
     printf("\n");
     do{
-        printf("Please enter the Difficulty (10=Medium, 16=Insane):");
-        scanf("%d", &iDifficulty);
-        if (iDifficulty>41 || iDifficulty<10){
+        printf("Please enter the Difficulty (1=Easy, 10=Hard): \n");
+        scanf("%s", buffer);
+	  iDifficulty=atoi(buffer);
+        if (iDifficulty>10 || iDifficulty<1){
             printf("Invalid Difficulty.\n");
         }
         else{
-            result=iDifficulty;
+            result=(iDifficulty-1)/2+10;
 
         }
     }while (result==0);
