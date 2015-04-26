@@ -146,7 +146,7 @@ int ValidateFour(int Col, int Row, char WHO )
                 iMax = aHELPER[Col][Row].PositiveDiagonalBottomCOL+3;
                 k=0;
                 for (i = iMin; i<=iMax; i++){
-                    if (aMain[i][(j + (i - iMin))]==WHO){
+                    if (aMain[i+(j-jMin)][(j + (i - iMin))]==WHO){
                         k++;
                     }
                 }
