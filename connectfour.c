@@ -32,9 +32,10 @@ int TheMoveCol;
 int TheMoveRoW;
 int RedCounter[8];
 int Difficulty=16;
-//BELOW THIS IS .h
-
-int maxsize=8;
+char highscorename[10][10];
+int highscoreval[10];
+int ihighscore=0;
+int maxsize=256;
 
 void CreateHelper()
 {
@@ -146,7 +147,7 @@ int ValidateFour(int Col, int Row, char WHO )
                 iMax = aHELPER[Col][Row].PositiveDiagonalBottomCOL+3;
                 k=0;
                 for (i = iMin; i<=iMax; i++){
-                    if (aMain[i][(j + (i - iMin))]==WHO){
+                    if (aMain[i+(j-jMin)][(j + (i - iMin))]==WHO){
                         k++;
                     }
                 }
@@ -192,7 +193,8 @@ int MakeTheBestMove()
                     if (Ply == 1) {
                         TheMoveCol = i;
                         printf("Game Over!, Computer Wins\n");
-                        GAME_IS_OVER=1;
+                        highscoreval[ihighscore]=0;//0 Score if you loose
+			GAME_IS_OVER=1;
                         WhoWin = 'R';
                         return NO_WAY;
                     }
@@ -315,7 +317,6 @@ int MakeTheBestMove()
     return NO_WAY;
 }
 
-//FUNCTION BELOW CAN BE MODIFIED TO COMBINE WITH PREVIOUS, WILL ADD NEXT ITERATION
 int AssumeHisMove()
 {
     int i;
@@ -441,7 +442,7 @@ void displayGrid()
 
     printf("  1   2   3   4   5   6   7 \n");
 }
-int Obtain(){
+int ObtainMove(){
     int result=0;
     int iColumn;
     int n;
@@ -481,19 +482,139 @@ int ObtainDifficulty(){
     }while (result==0);
     return result;
 }
+void ObtainName(){
+	int n;
+	int i;
+	char temp=1;
+	char buffer [maxsize];
+ 	printf("\n");
+ 	while(temp){
+    		printf("Please enter your nickname (max 9 characters): \n");
+	    	scanf("%s", buffer);
+    		if ((n=strlen(buffer))>9){
+     			printf("Invalid nickname. \n");
+      		}
+    		else{
+			for(i=0;i<n;i++){
+	      			highscorename[ihighscore][i]=buffer[i];
+			}
+    			highscoreval[ihighscore]=0;
+			ihighscore++;
+			temp=0;
+    		}
+  	}
+}
+int ObtainScore(){
+	int x, y;
+  	int score=42;
+  	for (y = 6; y > 0; y--)
+    	{
+      		for (x = 1; x < 8; x++)
+        	{
+	  		if(aMain[x][y] == 'R'){
+	    			score--;
+			}
+	  		if (aMain[x][y] == 'B'){
+	    			score--;
+			}
+	 	}
+    	}
+  	score=(score*100)/34+1;
+	return score;
+}
+void PrintHighScore(){
+	int i;
+	printf("   Name       Score\n");
+	for(i=0;i<ihighscore;i++){
+		printf("%d. ",i+1);
+		printf("%-10s ",highscorename[i]);
+		printf("%d\n", highscoreval[i]);
+	}
+
+}
+//Instructions
+void ObtainInstructions(){
+	char buffer [maxsize];
+ 	printf("\n");
+	printf("Do you want to see instruction? (y/n)\n");
+	scanf("%s", buffer);
+	if(buffer[0]=='y'){
+		printf("STUFF\n");
+	}
+}
+
+void SortInstructions(){
+	int i;
+  	int j;
+  	int k;
+  	int tempeval[10];
+  	char tempname[10][10];
+  	int score = highscoreval[ihighscore-1];
+  	char name[10];
+  	if(ihighscore==1){
+		return;
+  	}
+  	for(i=0;highscorename[ihighscore-1][i] != '\0' && i<strlen(highscorename[ihighscore-1]);i++){
+    		name[i]=highscorename[ihighscore-1][i];
+  	}
+  	name[i]='\0';
+  	for(i=0;i<ihighscore-1;i++){
+    		if(highscoreval[i]<score){
+      			break;
+    		}
+  	}
+  	for(j=ihighscore-2;j>=i;j--){
+    		for(k=0;k<strlen(highscorename[j]);k++){
+			highscorename[j+1][k]=highscorename[j][k];
+    		}
+    		for(;k<10;k++){
+			highscorename[j+1][k]='\0';
+    		}
+    		highscoreval[j+1]=highscoreval[j];
+  	}
+  	for(j=0;name[j]!='\0' && j<strlen(name);j++){
+    		highscorename[i][j]=name[j];
+  	}
+  	highscorename[i][j]='\0';
+  	highscoreval[i]=score;
+}
+
 int main()
 {
-
+    int temp;
     int s =0;
     int m =0;
     int i;
     int j;
     int iMax=0;
+    ihighscore=3;//comment out
     CreateHelper();
+    ObtainInstructions();
+    ObtainName();
     Difficulty=ObtainDifficulty();
+    //TAKE OUT BELOWO!!!!!!!
 
-
-
+    highscoreval[0]=50;
+    highscoreval[1]=40;
+    highscoreval[2]=32;
+    highscorename[0][0]='M';
+    highscorename[0][1]='a';
+    highscorename[0][2]='r';
+    highscorename[0][3]='k';
+    highscorename[0][4]='\0';
+    highscorename[1][0]='V';
+    highscorename[1][1]='l';
+    highscorename[1][2]='a';
+    highscorename[1][3]='d';
+    highscorename[1][4]='\0';
+    highscorename[2][0]='M';
+    highscorename[2][1]='i';
+    highscorename[2][2]='c';
+    highscorename[2][3]='h';
+    highscorename[2][4]='a';
+    highscorename[2][5]='e';
+    highscorename[2][6]='l';
+    highscorename[2][7]='\0';
 
     for(m=1;m<=7;m++){
         RedCounter[m] = 0;
@@ -509,7 +630,24 @@ int main()
     displayGrid();
     while(GAME_IS_OVER == 0)
     {
-        TheMoveCol = Obtain();
+        for (m=1;m<8;m++)
+        {
+        	if(aMain[m][6]==' ')
+                {
+                    break;
+                }
+        }
+        if(m==8){
+                printf("Game Over! It is a draw\n");
+	    	highscoreval[ihighscore-1]=10;//Draw is 10.
+		SortInstructions();
+		PrintHighScore();
+                GAME_IS_OVER=1;
+		//system("pause");
+                return 1;
+        }
+
+        TheMoveCol = ObtainMove();
 
         for(m=1;m<=7;m++){
             RedCounter[m] = 0;
@@ -524,8 +662,13 @@ int main()
         displayGrid();
         if(ValidateFour(TheMoveCol,i,'B')==1){
             printf("Game Over! Player has won!\n");
-            GAME_IS_OVER =1;
-			//system("pause");
+	    temp=ObtainScore();
+	    //printf("%d\n", temp);
+	    highscoreval[ihighscore-1]=temp;
+	    SortInstructions();
+	    PrintHighScore();
+	    GAME_IS_OVER =1;
+	    //system("pause");
             return 1;
 
         }
@@ -541,8 +684,11 @@ int main()
             }
             if(m==8){
                 printf("Game Over! It is a draw\n");
+	    	highscoreval[ihighscore-1]=10;//Draw is 10.
+		SortInstructions();
+	    	PrintHighScore();
                 GAME_IS_OVER=1;
-				//system("pause");
+		//system("pause");
                 return 1;
             }
             iMax = m;
@@ -559,6 +705,10 @@ int main()
         sColor='R';
         MakeMove (TheMoveCol);
     }
-	//system("pause");
+    SortInstructions();
+    PrintHighScore();
+
+    //system("pause");
     return 0;
 }
+

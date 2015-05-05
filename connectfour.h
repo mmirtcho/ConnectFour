@@ -11,8 +11,15 @@ void CreateHelper();
 int ValidateFour(int Col, int Row, char WHO );
 int MakeTheBestMove();
 int AssumeHisMove();
+
 void MakeMove(int col);
 void displayGrid();
+int ObtainMove();
 int ObtainDifficulty();
+void ObtainName();
+int ObtainScore();
+void PrintHighScore();
+void ObtainInstructions();
 
 #endif
+
