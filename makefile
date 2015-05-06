@@ -1,9 +1,20 @@
-CC     = gcc
-C_FILE = $(wildcard *.c)
-TARGET = $(patsubst %.c,%,$(C_FILE))
-CFLAGS = -g -fmessage-length=0
+NAME1=connectfour
+SRC1=connectfour.c
+OBJ1=$(SRC1:.c=.o)
+RM=rm -f
 
-all:
-	$(CC) $(CFLAGS) $(C_FILE) -o $(TARGET)
+all:$(NAME1)
+
+$(NAME1):$(OBJ1)
+
 clean:
-	rm -f $(TARGET) $(TARGET).exe
+        -$(RM) *~
+        -$(RM) *.o
+        -$(RM) *.core
+        -$(RM) *.swp
+        -$(RM) \#*
+
+fclean: clean
+        -$(RM) $(NAME1)
+
+re: fclean all
