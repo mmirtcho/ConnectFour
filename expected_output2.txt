@@ -1,4 +1,12 @@
 
+Do you want to see instruction? (y/n)
+Welcome to our Connect Four Program
+Your name (9 letters) will be used to compare to our existing high scores.
+The difficulty can range from 1-10 and the moves can range from 1-7.
+Good Luck; Have Fun!
+
+Please enter your nickname (max 9 characters): 
+
 Please enter the Difficulty (1=Easy, 10=Hard): 
 -----------------------------
 |   |   |   |   |   |   |   |
@@ -243,3 +251,8 @@ Game Over!, Computer Wins
 |   | O | O | X | X | O | X |
 -----------------------------
   1   2   3   4   5   6   7 
+   Name       Score
+1. Mark       50
+2. Vlad       40
+3. Michael    32
+4. LongName   0
