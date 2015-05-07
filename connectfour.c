@@ -2,7 +2,7 @@
 
 #include "connectfour.h"
 
-
+/*
 char aMain[8][7];
 char piece[2]={ 'X','O'};
 int NO_WAY=1;
@@ -36,7 +36,7 @@ char highscorename[10][10];
 int highscoreval[10];
 int ihighscore=0;
 int maxsize=256;
-
+*/
 void CreateHelper()
 {
     int i;
@@ -92,6 +92,8 @@ void CreateHelper()
         }
     }
 }
+
+
 int ValidateFour(int Col, int Row, char WHO )
 {
 
@@ -539,11 +541,11 @@ void ObtainInstructions(){
 	printf("Do you want to see instruction? (y/n)\n");
 	scanf("%s", buffer);
 	if(buffer[0]=='y' || buffer[0]=='Y'){
-                printf("Welcome to our Connect Four Program\n");
-                printf("Your name (9 letters) will be used to compare to our existing high scores.\n");
-                printf("The difficulty can range from 1-10 and the moves can range from 1-7.\n");
-                printf("Good Luck; Have Fun!\n");
-        }
+		printf("Welcome to our Connect Four Program\n");
+		printf("Your name (9 letters) will be used to compare to our existing high scores.\n");
+		printf("The difficulty can range from 1-10 and the moves can range from 1-7.\n");
+		printf("Good Luck; Have Fun!\n");
+	}
 }
 
 void SortInstructions(){
