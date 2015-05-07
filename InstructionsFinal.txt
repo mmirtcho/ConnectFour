@@ -20,7 +20,7 @@ Instructions for running the system
 1) steps 1-5 from instructions for building system
 2) Type: ./connectfour
 3) You will be taken to : Please enter the Difficulty (1=Easy, 10=Hard): (enter any number from 1 to 10)
-4) Board will be displayed if the number entered is in correct range. After that you will need to enter a move ranging from 1 to 7 (number of columns) and unless the column is full “o” symbol will be placed in that column.
+4) Board will be displayed if the number entered is in correct range. After that you will need to enter a move ranging from 1 to 7 (number of columns) and unless the column is full “O” symbol will be placed in that column.
 5) Repeat 4 until you win or loose
 
 Note: our AI (artificial intelligence) is not perfect, so the larger the difficulty, longer it takes for computer to respond during the first few moves. Suggested difficulty: 1 to 5
