@@ -1,0 +1,29 @@
+Instructions for building the system:
+1) Follow this link https://github.com/mmirtcho/ConnectFour and download all of the documents located in the repository
+2) Place the content in the single folder(directory).
+3) Locate and launch cmd.exe
+4) Navigate cmd to the directory, where you placed all of the files
+5) Type: make
+
+Instructions for running unit tests:
+1) Steps 1-5 from previous instructions
+2) To test each function just type: ls  (to see which funtions are there to test).
+3) After that go through each executable and ./(Name of executable)
+4) Some will require user input, so you can test incorrect values, such as 33 as difficulty or 10 as move
+
+Instructions for running Acceptance test (cucumber required):
+1) Navigate to test folder in the ConnectFour directory and type: cucumber
+2) This test is fully automatic and doesn't require user contribution (it tests program as a whole)
+
+Instructions for running the system
+1) steps 1-5 from instructions for building system
+2) Type: ./connectfour
+3) You will be taken to : Please enter the Difficulty (1=Easy, 10=Hard): (enter any number from 1 to 10)
+4) Board will be displayed if the number entered is in correct range. After that you will need to enter a move ranging from 1 to 7 (number of columns) and unless the column is full “o” symbol will be placed in that column.
+5) Repeat 4 until you win or loose
+
+Note: our AI (artificial intelligence) is not perfect, so the larger the difficulty, longer it takes for computer to respond during the first few moves. Suggested difficulty: 1 to 5
+
+
+For any questions please contact us at:
+mmirtcho@stevens.edu
