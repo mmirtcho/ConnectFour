@@ -13,7 +13,8 @@ Instructions for running unit tests:
 
 Instructions for running Acceptance test (cucumber required):
 1) Navigate to test folder in the ConnectFour directory and type: cucumber
-2) This test is fully automatic and doesn't require user contribution (it tests program as a whole)
+2) If step 1 doesn't work please follow steps 1-5 for building the system and copy the executable (connectfour) into the tests folder. This should overrride our execubale that was provided beacuse it is incompatable with your system.
+3) This test is fully automatic and doesn't require user contribution (it tests program as a whole)
 
 Instructions for running the system
 1) steps 1-5 from instructions for building system
