@@ -37,15 +37,25 @@ void MakeMove(int col){
 }
 int main()
 {
-  displayGrid();
-  MakeMove(3);
-  displayGrid();
-  MakeMove(4);
-  displayGrid();
-  MakeMove(2);
-  displayGrid();
+	int i,j;
 
-  printf("This is how making moves 3 - 4 - 2 look like \n");
+    for (i = 1; i <= 7; i++){
+        for (j = 1; j <= 6; j++){
+            aMain[i][j] = ' ';
+        }
+    }
+
+  displayGrid();
+  sColor='R';
+  MakeMove(4);
+  sColor='B';
+  MakeMove(3);
+  sColor='R';
+  MakeMove(4);
+  sColor='B';
+  MakeMove(2);
+
+  printf("This is how making moves 4 - 3 - 4 - 2 look like \n");
 
   return 0;
 }

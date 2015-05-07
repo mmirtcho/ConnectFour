@@ -25,8 +25,8 @@ void ObtainName(){
 
 int main()
 {
+ihighscore=0;
   ObtainName();
-  printf("Name you Entered is: \n");
-  //printf(highscorename);
+  printf("Name you Entered is: %s. \n",	highscorename[ihighscore-1]);
   return 0;
 }
