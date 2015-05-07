@@ -1,4 +1,4 @@
-Feature: difficulty
+Feature: play
 
     Several scenarios to test the connect four program depth feature. Difficulty can be 10-42 and is the dificulty level of the AI. "X" is computer, "O" is human.
 
